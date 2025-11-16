@@ -17,8 +17,7 @@ public class TodoService
     private TodoRepository todorepository;
 
     // Create
-    public Todo createTodo(Todo input)
-    {
+    public Todo createTodo(Todo input) {
 
         return todorepository.save(input);
     }
