@@ -18,19 +18,19 @@ public class TodoController
 
     // Create
     @PostMapping
-    public ResponseEntity<Todo> createTodo(@RequestBody Todo input)
+    public ResponseEntity<Todo> createTodo(@RequestBody Todo todo)
     {
-        System.out.println("Created");
-        return new ResponseEntity<Todo>(todoService.createTodo(input), HttpStatus.CREATED);
+        System.out.println("created");
+        return new ResponseEntity<Todo>(todoService.createTodo(todo), HttpStatus.CREATED);
     }
 
     // Read
     @GetMapping("/{id}")
-    public ResponseEntity<Todo> getTodoById(@PathVariable() Long id)
+    public ResponseEntity<Todo> readTodoById(@PathVariable() Long id)
     {
         try
         {
-            Todo getTodo = todoService.getTodoById(id);
+            Todo getTodo = todoService.readTodoById(id);
             return new ResponseEntity<Todo>(getTodo, HttpStatus.OK);
         }
         catch (Exception e)
@@ -41,17 +41,17 @@ public class TodoController
 
     // ReadAll
     @GetMapping
-    public ResponseEntity<List<Todo>> getTodos()
+    public ResponseEntity<List<Todo>> readTodos()
     {
         System.out.println("ReadAll");
-        return new ResponseEntity<>(todoService.getTodos(), HttpStatus.OK);
+        return new ResponseEntity<>(todoService.readTodos(), HttpStatus.OK);
     }
 
     // Update
     @PutMapping
-    public ResponseEntity<Todo> updateTodo(@RequestBody Todo input)
+    public ResponseEntity<Todo> updateTodo(@RequestBody Todo todo)
     {
-        return new ResponseEntity<>(todoService.updateTodo(input), HttpStatus.OK);
+        return new ResponseEntity<>(todoService.updateTodo(todo), HttpStatus.OK);
     }
 
     // Delete

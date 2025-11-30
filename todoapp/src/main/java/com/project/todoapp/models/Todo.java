@@ -2,6 +2,8 @@ package com.project.todoapp.models;
 
 import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Max;
+import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import lombok.Data;
@@ -10,7 +12,7 @@ import lombok.Data;
 @Data
 public class Todo
 {
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue
     @Id
     private Long id;
     @NotNull
@@ -22,5 +24,5 @@ public class Todo
     @Schema(name = "description", example = "A simple Spring Boot To-Do app")
     private String description;
     @Schema(name = "complete", example = "true")
-    private boolean complete;
+    private Boolean complete;
 }

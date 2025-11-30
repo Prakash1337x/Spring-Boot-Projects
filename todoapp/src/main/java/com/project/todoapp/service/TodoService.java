@@ -17,19 +17,19 @@ public class TodoService
     private TodoRepository todorepository;
 
     // Create
-    public Todo createTodo(Todo input) {
-
-        return todorepository.save(input);
+    public Todo createTodo(Todo todo)
+    {
+        return todorepository.save(todo);
     }
 
     // Read
-    public Todo getTodoById(Long id)
+    public Todo readTodoById(Long id)
     {
         return todorepository.findById(id).orElseThrow(() -> new RuntimeException("Todo Not Found!.."));
     }
 
     // ReadAll
-    public List<Todo> getTodos()
+    public List<Todo> readTodos()
     {
         return todorepository.findAll();
     }
